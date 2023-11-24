@@ -1,17 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { useState } from 'react';
+import { useEffect } from 'react';
 const useSingleUserbyEmail = () => {
     const { user } = useContext(AuthContext);
-    const { refetch, isLoading: loading, isError, data: singleUser = [], error } = useQuery({
-        queryKey: ['singleUser', user?.email],
-        queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users/emailfind/${user?.email}`)
-            return res.json()
-        },
-    })
 
-    return [singleUser, refetch, loading]
+    const [singleUser, setUsers] = useState([])
+    const [singleUserloadings, setLoading] = useState(true)
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/emailfind/${user?.email}`)
+            .then(response => response.json())
+            .then(data => {
+                setUsers(data);
+             
+                setLoading(false);
+            })
+    }, [singleUser, user])
+   
+    return [singleUser, singleUserloadings]
 };
 
 export default useSingleUserbyEmail;

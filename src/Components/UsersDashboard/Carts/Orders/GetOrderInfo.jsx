@@ -8,10 +8,10 @@ const GetOrderInfo = ({ carts, setAddress, btnName }) => {
 
     const [showModal, setShowModal] = useState(false);
     const { user } = useContext(AuthContext)
-    const [singeUser, refatch, loading] = useSingleUserbyEmail()
+    const [singeUser, refatch, singleUserloadings] = useSingleUserbyEmail()
 
 
-    const theAddress = singeUser[0]?.address
+    const theAddress = singeUser?.address
 
 
     const handelSubmit = (e) => {
@@ -36,9 +36,9 @@ const GetOrderInfo = ({ carts, setAddress, btnName }) => {
             {showModal ? (
                 <>
                     {
-                        loading ? <>
+                        singleUserloadings ? <>
                             <div className="w-full h-screen flex items-center justify-center">
-                                <span className="loading loading-dots loading-lg"></span>
+                                <span className="singleUserloadings singleUserloadings-dots singleUserloadings-lg"></span>
                             </div>
                         </> : <>
                             <div
@@ -71,7 +71,7 @@ const GetOrderInfo = ({ carts, setAddress, btnName }) => {
                                                         <label className="label">
                                                             <span className="label-text">Full Name</span>
                                                         </label>
-                                                        <input required type="text" defaultValue={singeUser[0].displayName} name='fullName' placeholder="Name" className="input input-bordered" />
+                                                        <input required type="text" defaultValue={singeUser.displayName} name='fullName' placeholder="Name" className="input input-bordered" />
                                                     </div>
                                                     <div className="form-control">
                                                         <label className="label">

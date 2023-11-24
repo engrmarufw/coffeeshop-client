@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import useCarts from '../../../Hooks/useCarts';
 import { AuthContext } from '../../../providers/AuthProvider';
 import GetOrderInfo from './Orders/GetOrderInfo';
+import useSingleUserbyEmail from '../../../Hooks/useSingleUserbyEmail';
 
 const PlaceOrder = () => {
     const [carts, refatch, loading] = useCarts()
@@ -97,10 +98,10 @@ const PlaceOrder = () => {
     const updateUser = {
         address
     }
-
+    const [singeUser, singleUserloadings] = useSingleUserbyEmail()
+    // console.log(singeUser?.address.phone.length);
     const handelOrder = () => {
         if (OrderData.address.length === 0) {
-
             Swal.fire({
                 icon: 'warning',
                 title: 'Please check the address',

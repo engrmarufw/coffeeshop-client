@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_apiKey,
-  authDomain:import.meta.env.VITE_authDomain,
-  projectId:import.meta.env.VITE_projectId,
-  storageBucket:import.meta.env.VITE_storageBucket,
-  messagingSenderId:import.meta.env.VITE_messagingSenderId,
-  appId:import.meta.env.VITE_appId
+  apiKey: "AIzaSyCQOhEb9O0NEOJ6N0t_QsgnCs6p1s2MrxA",
+  authDomain: "e-espresso.firebaseapp.com",
+  projectId: "e-espresso",
+  storageBucket: "e-espresso.appspot.com",
+  messagingSenderId: "973525241709",
+  appId: "1:973525241709:web:6015c9b0db9fdef307d464"
 };
 
 // Initialize Firebase

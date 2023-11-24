@@ -1,4 +1,4 @@
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,11 +7,12 @@ import useCarts from '../../../Hooks/useCarts';
 import useOrders from '../../../Hooks/useOrders';
 import { AuthContext } from '../../../providers/AuthProvider';
 import ActiveLink from '../ActiveLink/ActiveLink';
+import useSingleUserbyEmail from '../../../Hooks/useSingleUserbyEmail';
 
 const Navbar = () => {
     const [carts] = useCarts()
     const { logOut, user } = useContext(AuthContext);
-
+    const [singleUser, singleUserloadings] = useSingleUserbyEmail()
     let totalPrice = 0;
 
     for (let i = 0; i < carts.length; i++) {
@@ -54,8 +55,13 @@ const Navbar = () => {
 
                         <ActiveLink className='' to='/allcoffees'><span className="text-white font-bold text-lg hover:text-primary ease-out duration-300 ms-3">All Coffee</span></ActiveLink>
 
-                        <ActiveLink className='' to='/dashboard/home'><span className=' font-bold text-white ms-3 hover:text-primary ease-out duration-300'>Dashboard</span></ActiveLink>
 
+
+                        {
+                            user ? <ActiveLink className='' to='/dashboard/home'><span className=' font-bold text-white ms-3 hover:text-primary ease-out duration-300'>Dashboard</span></ActiveLink> : <>
+
+                            </>
+                        }
                         {
                             !user ? <ActiveLink className='' to='/login'><span className=' font-bold text-white ms-3 hover:text-primary ease-out duration-300'>Login</span></ActiveLink> : <>
 
@@ -91,8 +97,14 @@ const Navbar = () => {
                         user && <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user?.photoURL} />
+                                    {
+                                        singleUser?.photo ? <img src={singleUser?.photo} /> : <div className='text-white text-3xl'>
+                                            <FontAwesomeIcon icon={faUser} />
+                                        </div>
+                                    }
+
                                 </div>
+
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <p className='text-center text-xl font-bold'>

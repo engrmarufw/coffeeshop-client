@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import ActiveLink from '../../Shared/ActiveLink/ActiveLink';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Dashboard = () => {
+    const { logOut, user } = useContext(AuthContext);
+    const handelLogout = () => {
+        logOut()
+            .then(result => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Your have been log out successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+    }
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -45,6 +58,9 @@ const Dashboard = () => {
                         <li> <ActiveLink className='' to='/dashboard/addcoffee'><span className=' font-bold hover:text-primary ease-out duration-300'>Add New Coffee</span></ActiveLink></li>
                         <li> <ActiveLink className='' to='/dashboard/manageorders'><span className=' font-bold hover:text-primary ease-out duration-300'>Manage Oeders</span></ActiveLink></li>
                         <li> <ActiveLink className='' to='/dashboard/manageusers'><span className=' font-bold hover:text-primary ease-out duration-300'>Manage Users</span></ActiveLink></li>
+                        <li> <ActiveLink className='' to='/'><span className=' font-bold hover:text-primary ease-out duration-300'>Home</span></ActiveLink></li>
+
+                        <li className='hover:font-bold ease-out duration-300'> <button className=' font-bold hover:text-primary ease-out duration-300' onClick={handelLogout}><span >Log Out</span></button></li>
 
                     </ul>
 

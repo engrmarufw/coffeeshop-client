@@ -5,10 +5,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useCoffee from '../../../Hooks/useCoffee';
+import useCarts from '../../../Hooks/useCarts';
+import { AuthContext } from '../../../providers/AuthProvider';
+import { useContext } from 'react';
 const DisplayCoffeeInfo = () => {
     const [oneCoffee, loading] = useCoffee()
     const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
+    const [, refetch] = useCarts()
+    const { user } = useContext(AuthContext);
     const handelCart = (id) => {
 
         const cartdata = {
@@ -17,17 +22,40 @@ const DisplayCoffeeInfo = () => {
             price: oneCoffee.price,
             taste: oneCoffee.taste,
             photo: oneCoffee.photo,
-            quantity: quantity
+            quantity: quantity,
+            email:user?.email
         };
-        axios.post('http://localhost:5000/carts', cartdata)
-            .then(response => {
-                console.log('Response:', response.data);
+        if (user) {
+            axios.post('http://localhost:5000/carts', cartdata)
+                .then(response => {
+                    refetch();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Add to cart successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+        else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'You have to login befor add to cart?',
+                showCancelButton: true,
+                confirmButtonText: 'Login',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    navigate('/login')
+                }
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        }
     }
 
+    // console.log(carts);
 
 
 

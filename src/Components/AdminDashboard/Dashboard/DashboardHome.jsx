@@ -3,11 +3,25 @@ import { faBell, faChartLine, faPercent, faUsers } from '@fortawesome/free-solid
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import useCoffees from '../../../Hooks/useCoffees';
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
+import useUsers from '../../../Hooks/useUsers';
+import useSingleUserbyEmail from '../../../Hooks/useSingleUserbyEmail';
 
 const DashboardHome = () => {
     const [coffee] = useCoffees();
     const [allOrders, setAllOrders] = useState([])
     const [loading, setLoading] = useState(true)
+    const { user } = useContext(AuthContext);
+    const users = useUsers();
+    const [singleuser, singleUserloadings] = useSingleUserbyEmail()
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1; // Months are 0-based, so add 1
+    const day = now.getDate();
+    const currentDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} `;
+    // console.log(currentDate);
     useEffect(() => {
         fetch(`http://localhost:5000/orders/all`)
             .then(response => response.json())
@@ -16,6 +30,34 @@ const DashboardHome = () => {
                 setLoading(false);
             })
     }, [allOrders])
+    const deliveredOrders = allOrders?.filter(order => order.orderStatus === "delivered");
+    const todaysdeliveredOrders = deliveredOrders?.filter(order => order.orderDateTime.orderDate === currentDate);
+    // console.log(todaysdeliveredOrders);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    // Calculate total price when component mounts or when orders change
+    useEffect(() => {
+        let calculatedTotal = 0;
+
+        deliveredOrders.forEach(order => {
+            calculatedTotal += parseInt(order.totalPrice, 10);
+        });
+
+        setTotalPrice(calculatedTotal);
+    }, [deliveredOrders]);
+        const [todaystotalPrice, settodaysTotalPrice] = useState(0);
+
+    useEffect(() => {
+        let calculatedTotal = 0;
+
+        todaysdeliveredOrders.forEach(order => {
+            calculatedTotal += parseInt(order.totalPrice, 10);
+        });
+
+        settodaysTotalPrice(calculatedTotal);
+    }, [todaysdeliveredOrders]);
+
+    // console.log(todaystotalPrice);
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -45,21 +87,11 @@ const DashboardHome = () => {
 
 
                     <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <label className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src="https://i.ibb.co/h17GtYn/French-Press-Blend.jpg" />
+                                <img src={singleuser?.photo} />
                             </div>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -73,7 +105,7 @@ const DashboardHome = () => {
                     <div className="card bg-base-100 shadow-xl">
                         <div className="card-body">
 
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
 
 
                                 {/* .card 1 start */}
@@ -84,7 +116,7 @@ const DashboardHome = () => {
                                         </div>
                                         <div className=" text-center">
                                             <h3 className="my-2">Total Sell</h3>
-                                            <h1 className="text-xl text-red-600 font-bold">31513$</h1>
+                                            <h1 className="text-xl text-red-600 font-bold">{totalPrice}$</h1>
 
                                         </div>
                                     </div>
@@ -97,15 +129,15 @@ const DashboardHome = () => {
                                             <div className="w-10 h-10 bg-accent flex items-center justify-center rounded-full border-4 border-white"> <FontAwesomeIcon className='text-white text-xl' icon={faPercent} /></div>
                                         </div>
                                         <div className=" text-center">
-                                            <h3 className="my-2">Daily Sell</h3>
-                                            <h1 className="text-xl text-red-600 font-bold">11513$</h1>
+                                            <h3 className="my-2">Today's Sell</h3>
+                                            <h1 className="text-xl text-red-600 font-bold">{todaystotalPrice}$</h1>
 
                                         </div>
                                     </div>
                                 </div>
                                 {/* .card 2 end */}
                                 {/* .card 3 start */}
-                                <div className="bg-base-200 shadow-xl md:h-[10rem] rounded-lg flex items-center justify-center ">
+                                {/* <div className="bg-base-200 shadow-xl md:h-[10rem] rounded-lg flex items-center justify-center ">
                                     <div className="md:py-0 py-4">
                                         <div className="flex items-center justify-center ">
                                             <div className="w-10 h-10 bg-warning flex items-center justify-center rounded-full border-4 border-white"> <FontAwesomeIcon className='text-black text-xl' icon={faUsers} /></div>
@@ -116,7 +148,7 @@ const DashboardHome = () => {
 
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 {/* .card 3 end */}
                                 {/* .card 4 start */}
                                 <div className="bg-base-200 shadow-xl md:h-[10rem] rounded-lg flex items-center justify-center ">
