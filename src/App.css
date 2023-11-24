@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+*{
+    font-family: 'Rancho', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1152px !important;
+    margin: auto;
+}
+
+.probg{
+    background-color: #eceae3c2 !important;
+}
+.zindex{
+    z-index: 1 !important;
+}
+.active span{
+    color: #E3B577;
+}
+#links{
+    font-weight: bold !important;
+    font-size: 16px !important;
+    color: white !important;
+}

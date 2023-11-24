@@ -1,0 +1,19 @@
+[
+    {
+        "_id": "65093f8693a0a061b2e4277b",
+        "productID": "6507bf4266a69af1d8b5ed0e",
+        "coffeeName": "Ethiopian Yirgacheffe",
+        "price": "800",
+        "taste": "Bright, Floral, Citrusy",
+        "photo": "https://i.ibb.co/yFVCMLF/2-removebg-preview.png"
+    },
+    {
+        "_id": "650960fb65a13242e5fca858",
+        "productID": "6507bf4266a69af1d8b5ed0d",
+        "coffeeName": "Ethiopian Yirgacheffe",
+        "price": "800",
+        "taste": "Bright, Floral, Citrusy",
+        "photo": "https://i.ibb.co/Vt0HN1b/1-removebg-preview.png"
+    }
+]
+

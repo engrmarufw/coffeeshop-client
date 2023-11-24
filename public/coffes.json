@@ -1,0 +1,111 @@
+[
+    {
+        "id": 1,
+        "coffeeName": "Ethiopian Yirgacheffe",
+        "chef": "Alessandro Rossi",
+        "supplier": "Blue Bottle Coffee",
+        "category": "Single Origin",
+        "taste": "Bright, Floral, Citrusy",
+        "details": "This coffee hails from the Yirgacheffe region in Ethiopia, known for its distinct floral and citrus notes. It's a light roast that's perfect for those who enjoy a vibrant and lively cup of coffee.",
+        "price": "৳800",
+        "photo": "https://i.ibb.co/Vt0HN1b/1-removebg-preview.png"
+    },
+    {
+        "id": 2,
+        "coffeeName": "Italian Espresso",
+        "chef": "Mia Rodriguez",
+        "supplier": "Lavazza",
+        "category": "Espresso Blend",
+        "taste": "Bold, Robust, Bittersweet",
+        "details": "Lavazza's Italian Espresso blend is a classic, offering a rich and intense coffee experience. It's ideal for those who prefer a strong and full-bodied cup of espresso.",
+        "price": "৳650",
+        "photo": "https://i.ibb.co/yFVCMLF/2-removebg-preview.png"
+    },
+    {
+        "id": 3,
+        "coffeeName": "Colombian Supremo",
+        "chef": "Xavier Chen",
+        "supplier": "Juan Valdez",
+        "category": "Single Origin",
+        "taste": "Balanced, Nutty, Chocolatey",
+        "details": "Grown in the lush mountains of Colombia, this coffee is celebrated for its well-rounded flavor profile with nutty and chocolatey undertones. It's a medium roast that appeals to a wide range of palates.",
+        "price": "৳550",
+        "photo": "https://i.ibb.co/7QwMf04/3-removebg-preview.png"
+    },
+    {
+        "id": 4,
+        "coffeeName": "Hawaiian Kona",
+        "chef": "Isabella Martinez",
+        "supplier": "Koa Coffee",
+        "category": "Single Origin",
+        "taste": "Smooth, Mellow, Nutty",
+        "details": "Hawaiian Kona coffee is renowned for its smooth and velvety texture, complemented by a subtle nuttiness. It's grown in the fertile volcanic soils of the Big Island and is a true specialty.",
+        "price": "৳950",
+        "photo": "https://i.ibb.co/Kqzv1mW/4-removebg-preview.png"
+    },
+    {
+        "id": 5,
+        "coffeeName": "French Press Blend",
+        "chef": "Leo Nguyen",
+        "supplier": "Stumptown Coffee Roasters",
+        "category": "Blend",
+        "taste": "Rich, Full-bodied, Dark Chocolate",
+        "details": "Stumptown's French Press Blend is crafted specifically for this brewing method. It yields a full-bodied cup with deep, dark chocolate flavors, making it perfect for a robust morning pick-me-up.",
+        "price": "৳850",
+        "photo": "https://i.ibb.co/fpfgWHp/5-removebg-preview.png"
+    },
+    {
+        "id": 6,
+        "coffeeName": "Guatemalan Antigua",
+        "chef": "Olivia Smith",
+        "supplier": "Intelligentsia Coffee",
+        "category": "Single Origin",
+        "taste": "Spicy, Cocoa, Herbal",
+        "details": "Grown in the renowned Antigua region of Guatemala, this coffee boasts spicy and herbal notes, complemented by a delightful cocoa undertone. It's a medium roast with a unique flavor profile.",
+        "price": "৳700",
+        "photo": "https://i.ibb.co/fCW0HPm/6-removebg-preview.png"
+    },{
+        "id": 7,
+        "coffeeName": "Ethiopian Yirgacheffe",
+        "chef": "Alessandro Rossi",
+        "supplier": "Blue Bottle Coffee",
+        "category": "Single Origin",
+        "taste": "Bright, Floral, Citrusy",
+        "details": "This coffee hails from the Yirgacheffe region in Ethiopia, known for its distinct floral and citrus notes. It's a light roast that's perfect for those who enjoy a vibrant and lively cup of coffee.",
+        "price": "৳800",
+        "photo": "https://i.ibb.co/Vt0HN1b/1-removebg-preview.png"
+    },
+    {
+        "id": 8,
+        "coffeeName": "Italian Espresso",
+        "chef": "Mia Rodriguez",
+        "supplier": "Lavazza",
+        "category": "Espresso Blend",
+        "taste": "Bold, Robust, Bittersweet",
+        "details": "Lavazza's Italian Espresso blend is a classic, offering a rich and intense coffee experience. It's ideal for those who prefer a strong and full-bodied cup of espresso.",
+        "price": "৳650",
+        "photo": "https://i.ibb.co/yFVCMLF/2-removebg-preview.png"
+    },
+    {
+        "id": 9,
+        "coffeeName": "Colombian Supremo",
+        "chef": "Xavier Chen",
+        "supplier": "Juan Valdez",
+        "category": "Single Origin",
+        "taste": "Balanced, Nutty, Chocolatey",
+        "details": "Grown in the lush mountains of Colombia, this coffee is celebrated for its well-rounded flavor profile with nutty and chocolatey undertones. It's a medium roast that appeals to a wide range of palates.",
+        "price": "৳550",
+        "photo": "https://i.ibb.co/7QwMf04/3-removebg-preview.png"
+    },
+    {
+        "id": 10,
+        "coffeeName": "Hawaiian Kona",
+        "chef": "Isabella Martinez",
+        "supplier": "Koa Coffee",
+        "category": "Single Origin",
+        "taste": "Smooth, Mellow, Nutty",
+        "details": "Hawaiian Kona coffee is renowned for its smooth and velvety texture, complemented by a subtle nuttiness. It's grown in the fertile volcanic soils of the Big Island and is a true specialty.",
+        "price": "৳950",
+        "photo": "https://i.ibb.co/Kqzv1mW/4-removebg-preview.png"
+    }
+]
