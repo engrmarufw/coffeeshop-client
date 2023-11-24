@@ -6,7 +6,7 @@ const useCoffee = () => {
     const [loading, setLoading] = useState(true)
     const { coffeeID } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/coffees/${coffeeID}`)
+        fetch(`https://coffeeshop-server-sandy.vercel.app/coffees/${coffeeID}`)
             .then(response => response.json())
             .then(data => {
                 setOneCoffee(data);

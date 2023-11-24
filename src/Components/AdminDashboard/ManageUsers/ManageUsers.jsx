@@ -22,7 +22,7 @@ const ManageUsers = () => {
             confirmButtonText: 'Yes, cancel it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:5000/users/${id}`, userrole);
+                axios.put(`https://coffeeshop-server-sandy.vercel.app/users/${id}`, userrole);
                 Swal.fire(
                     'Yes!',
                     `User set to ${value}`,
@@ -44,7 +44,7 @@ const ManageUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/users/${id}`);
+                axios.delete(`https://coffeeshop-server-sandy.vercel.app/users/${id}`);
                 Swal.fire(
                     'Deleted!',
                     'User has been deleted.',

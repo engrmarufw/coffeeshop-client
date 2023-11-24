@@ -22,7 +22,7 @@ const BuyNow = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/carts/${id}`);
+                axios.delete(`https://coffeeshop-server-sandy.vercel.app/carts/${id}`);
                 Swal.fire(
                     'Deleted!',
                     'Your cart item has been deleted.',

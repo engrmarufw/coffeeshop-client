@@ -21,7 +21,7 @@ const ProfileSetting = () => {
         setUpdateA(true)
 
 
-        // axios.put(`http://localhost:5000/users/email/${user.email}`, updateUser)
+        // axios.put(`https://coffeeshop-server-sandy.vercel.app/users/email/${user.email}`, updateUser)
         // Swal.fire({
         //     title: 'Thank you. Your order has been placed',
         //     confirmButtonText: 'OK',
@@ -31,7 +31,7 @@ const ProfileSetting = () => {
         setUpdateA(false)
 
 
-        // axios.put(`http://localhost:5000/users/email/${user.email}`, updateUser)
+        // axios.put(`https://coffeeshop-server-sandy.vercel.app/users/email/${user.email}`, updateUser)
         // Swal.fire({
         //     title: 'Thank you. Your order has been placed',
         //     confirmButtonText: 'OK',
@@ -48,10 +48,10 @@ const ProfileSetting = () => {
             formData.append('image', selectedFile);
             try {
 
-                await axios.post('http://localhost:5000/imguploadimgbb', formData)
+                await axios.post('https://coffeeshop-server-sandy.vercel.app/imguploadimgbb', formData)
                     .then((response) => {
                         setPhoto(response.data);
-                        axios.put(`http://localhost:5000/users/${singleUser._id}`, { photo: response.data })
+                        axios.put(`https://coffeeshop-server-sandy.vercel.app/users/${singleUser._id}`, { photo: response.data })
                             .then((res) => {
                                 setLoading2(false)
                             })

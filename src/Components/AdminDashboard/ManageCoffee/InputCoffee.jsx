@@ -20,7 +20,7 @@ const InputCoffee = ({ setNewCoffee, newCoffee }) => {
                 .then(response => {
                     coffeeData.photo = response.data.data.url;
 
-                    axios.post('http://localhost:5000/coffees', coffeeData)
+                    axios.post('https://coffeeshop-server-sandy.vercel.app/coffees', coffeeData)
                         .then(response => {
                             Swal.fire({
                                 icon: 'success',

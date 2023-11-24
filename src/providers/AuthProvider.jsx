@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
 
             //get and send token
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                axios.post('https://coffeeshop-server-sandy.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         Cookies.set('access_token', data.data.token, { expires });
                     })

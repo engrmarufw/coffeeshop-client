@@ -68,7 +68,7 @@ const PlaceOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/carts/${id}`)
+                axios.delete(`https://coffeeshop-server-sandy.vercel.app/carts/${id}`)
                     .then(() => {
                         refatch()
                         Swal.fire(
@@ -109,9 +109,9 @@ const PlaceOrder = () => {
             })
         }
         else {
-            axios.post('http://localhost:5000/orders', OrderData)
+            axios.post('https://coffeeshop-server-sandy.vercel.app/orders', OrderData)
                 .then(response => {
-                    axios.put(`http://localhost:5000/users/email/${user.email}`, updateUser)
+                    axios.put(`https://coffeeshop-server-sandy.vercel.app/users/email/${user.email}`, updateUser)
                     Swal.fire({
                         title: 'Thank you. Your order has been placed',
                         confirmButtonText: 'OK',
@@ -119,7 +119,7 @@ const PlaceOrder = () => {
                         /* Read more about isConfirmed, isDenied below */
                         if (result.isConfirmed) {
                             for (const cart of carts) {
-                                axios.delete(`http://localhost:5000/carts/${cart._id}`)
+                                axios.delete(`https://coffeeshop-server-sandy.vercel.app/carts/${cart._id}`)
                             }
                             navigate(`/allcoffees`)
                         }

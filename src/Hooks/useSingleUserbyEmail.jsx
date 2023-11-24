@@ -9,7 +9,7 @@ const useSingleUserbyEmail = () => {
     const [singleUser, setUsers] = useState([])
     const [singleUserloadings, setLoading] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/users/emailfind/${user?.email}`)
+        fetch(`https://coffeeshop-server-sandy.vercel.app/users/emailfind/${user?.email}`)
             .then(response => response.json())
             .then(data => {
                 setUsers(data);

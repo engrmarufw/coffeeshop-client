@@ -13,7 +13,7 @@ const ManageOrders = () => {
     const [allOrders, setAllOrders] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/all`)
+        fetch(`https://coffeeshop-server-sandy.vercel.app/orders/all`)
             .then(response => response.json())
             .then(data => {
                 setAllOrders(data);
@@ -35,7 +35,7 @@ const ManageOrders = () => {
             confirmButtonText: 'Yes, cancel it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:5000/orders/${id}`, OrderData)
+                axios.put(`https://coffeeshop-server-sandy.vercel.app/orders/${id}`, OrderData)
                     .then(() => {
                         refetch()
                         Swal.fire(
@@ -63,7 +63,7 @@ const ManageOrders = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/orders/${id}`)
+                axios.delete(`https://coffeeshop-server-sandy.vercel.app/orders/${id}`)
                     .then(() => {
                         refetch()
                         Swal.fire(

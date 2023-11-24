@@ -21,7 +21,7 @@ const Register = () => {
                 }
                 updateuserProfile(data.fullName)
                     .then(() => {
-                        axios.post('http://localhost:5000/users', usersinfo)
+                        axios.post('https://coffeeshop-server-sandy.vercel.app/users', usersinfo)
                             .then(response => {
                                 Swal.fire({
                                     icon: 'success',
@@ -53,7 +53,7 @@ const Register = () => {
                     email: user.email,
                     photo: user.photoURL
                 }
-                axios.post('http://localhost:5000/users', usersinfo)
+                axios.post('https://coffeeshop-server-sandy.vercel.app/users', usersinfo)
                     .then(response => {
                         Swal.fire({
                             icon: 'success',

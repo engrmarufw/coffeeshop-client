@@ -23,7 +23,7 @@ const DisplyCoffee = ({ singleCoffee, loading }) => {
             email: user?.email
         };
         if (user) {
-            axios.post('http://localhost:5000/carts', cartdata)
+            axios.post('https://coffeeshop-server-sandy.vercel.app/carts', cartdata)
                 .then(response => {
                     refetch();
                     Swal.fire({

@@ -8,7 +8,7 @@ const UpdateCoffeeModal = ({ id }) => {
     const handelEdit = (cid) => {
         document.getElementById('my_modal_4').showModal()
 
-        fetch(`http://localhost:5000/coffees/${cid}`)
+        fetch(`https://coffeeshop-server-sandy.vercel.app/coffees/${cid}`)
             .then(response => response.json())
             .then(data => {
                 setNewCoffee(data);

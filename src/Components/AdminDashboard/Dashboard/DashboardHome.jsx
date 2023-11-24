@@ -23,7 +23,7 @@ const DashboardHome = () => {
     const currentDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} `;
     // console.log(currentDate);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/all`)
+        fetch(`https://coffeeshop-server-sandy.vercel.app/orders/all`)
             .then(response => response.json())
             .then(data => {
                 setAllOrders(data);

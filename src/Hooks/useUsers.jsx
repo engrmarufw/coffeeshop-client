@@ -5,7 +5,7 @@ const useUsers = () => {
     const [loadings, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://coffeeshop-server-sandy.vercel.app/users`)
             .then(response => response.json())
             .then(data => {
                 setUsers(data);

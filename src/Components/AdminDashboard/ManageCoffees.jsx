@@ -23,7 +23,7 @@ const ManageCoffees = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/coffees/${id}`);
+                axios.delete(`https://coffeeshop-server-sandy.vercel.app/coffees/${id}`);
                 Swal.fire(
                     'Deleted!',
                     'Your coffee has been deleted.',
@@ -48,7 +48,7 @@ const ManageCoffees = () => {
     const [openModl, setOpenModal] = useState(true)
     const handelEdit = (cid) => {
 
-        fetch(`http://localhost:5000/coffees/${cid}`)
+        fetch(`https://coffeeshop-server-sandy.vercel.app/coffees/${cid}`)
             .then(response => response.json())
             .then(data => {
                 setNewCoffee(data);
@@ -74,7 +74,7 @@ const ManageCoffees = () => {
             axios.post(`https://api.imgbb.com/1/upload?key=2a55d4892836932d2e39cadb5508ce97`, formData)
                 .then(response => {
                     coffeeData.photo = response.data.data.url;
-                    axios.put(`http://localhost:5000/coffees/${newCoffee._id}`, coffeeData)
+                    axios.put(`https://coffeeshop-server-sandy.vercel.app/coffees/${newCoffee._id}`, coffeeData)
                         .then(response => {
 
                             setOpenModal(false)
@@ -106,7 +106,7 @@ const ManageCoffees = () => {
             coffeeData.photo = newCoffee.photo;
 
 
-            axios.put(`http://localhost:5000/coffees/${newCoffee._id}`, coffeeData)
+            axios.put(`https://coffeeshop-server-sandy.vercel.app/coffees/${newCoffee._id}`, coffeeData)
                 .then(response => {
                     setOpenModal(false)
                     // Add any further handling or feedback here

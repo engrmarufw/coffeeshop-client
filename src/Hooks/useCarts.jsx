@@ -7,7 +7,7 @@ const useCarts = () => {
     const { refetch, isLoading: loading, isError, data: carts = [], error } = useQuery({
         queryKey: ['carts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`)
+            const res = await fetch(`https://coffeeshop-server-sandy.vercel.app/carts?email=${user?.email}`)
             return res.json()
         },
     })
@@ -24,7 +24,7 @@ export default useCarts;
 //     const [loading, setLoading] = useState(true)
 //     const { user } = useContext(AuthContext);
 //     useEffect(() => {
-//         fetch(`http://localhost:5000/carts?email=${user?.email}`)
+//         fetch(`https://coffeeshop-server-sandy.vercel.app/carts?email=${user?.email}`)
 //             .then(response => response.json())
 //             .then(data => {
 //                 setCarts(data);

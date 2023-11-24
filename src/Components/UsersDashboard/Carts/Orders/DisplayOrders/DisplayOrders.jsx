@@ -20,7 +20,7 @@ const DisplayOrders = () => {
             confirmButtonText: 'Yes, cancel it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:5000/orders/${id}`, OrderData);
+                axios.put(`https://coffeeshop-server-sandy.vercel.app/orders/${id}`, OrderData);
                 Swal.fire(
                     'Canceled',
                     'Your cart order has been cancelled.',
