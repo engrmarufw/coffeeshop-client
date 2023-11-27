@@ -22,7 +22,7 @@ const Footer = () => {
                 Swal.fire({
                     icon: "success",
                     title: "Your message has been send",
-                    showConfirmButton: true,
+                    showConfirmButton: false,
                     timer: 1500
                   })
                 e.target.reset();
