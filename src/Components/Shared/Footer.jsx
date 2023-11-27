@@ -19,11 +19,12 @@ const Footer = () => {
         }
         axios.post('https://coffeeshop-server-sandy.vercel.app/sendemail', mail)
             .then(res => {
-                Swal.fire(
-                    'success',
-                    'Your Message Has Been Send',
-                    'WOW'
-                )
+                Swal.fire({
+                    icon: "success",
+                    title: "Your message has been send",
+                    showConfirmButton: true,
+                    timer: 1500
+                  })
                 e.target.reset();
             })
     }
