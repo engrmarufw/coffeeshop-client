@@ -77,9 +77,9 @@ const Register = () => {
                     <div className="hero-content md:flex-row flex-col">
                         <div className="text-center lg:text-left">
                             <div className="relative flex md:justify-start justify-center">
-                                <h1 className="text-5xl font-bold text-acent drop-shadow-sm">Login now!</h1>
+                                <h1 className="text-5xl font-bold text-acent drop-shadow-sm">Register now!</h1>
                                 <div className="absolute top-0 ">
-                                    <h1 className="text-5xl font-bold text-acent blur-[0.09rem] ">Login now!</h1>
+                                    <h1 className="text-5xl font-bold text-acent blur-[0.09rem] ">Register now!</h1>
                                 </div>
                             </div>
 
