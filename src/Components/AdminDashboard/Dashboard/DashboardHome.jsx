@@ -66,7 +66,7 @@ const DashboardHome = () => {
                 </div>
                 <div className="flex-none">
 
-                    <div className="dropdown dropdown-end">
+                    {/* <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle">
                             <div className="indicator">
 
@@ -83,7 +83,7 @@ const DashboardHome = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
 
                     <div className="dropdown dropdown-end">

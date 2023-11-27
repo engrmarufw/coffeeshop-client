@@ -2,8 +2,31 @@ import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/fre
 import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Footer = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const message = formData.get("message");
+        const mail = {
+            name,
+            email,
+            message
+        }
+        axios.post('https://coffeeshop-server-sandy.vercel.app/sendemail', mail)
+            .then(res => {
+                Swal.fire(
+                    'success',
+                    'Your Message Has Been Send',
+                    'WOW'
+                )
+                e.target.reset();
+            })
+    }
     return (
         <div>
             <div className="bg-[url('https://i.ibb.co/fSpphww/13.jpg')] bg-cover bg-no-repeat bg-center pb-3">
@@ -73,10 +96,10 @@ const Footer = () => {
                                 </div>
                             </div>
 
-                            <form>
-                                <input type="text" placeholder="Name" className="input input-bordered w-full  hover:border-primary hover:drop-shadow-xl mb-3" />
-                                <input type="email" placeholder="Email" className="input input-bordered w-full hover:border-primary hover:drop-shadow-xl mb-3" />
-                                <textarea className="textarea textarea-bordered textarea-lg w-full  hover:border-primary hover:drop-shadow-xl mb-3" placeholder="Message"></textarea>
+                            <form onSubmit={handleSubmit}>
+                                <input name='name' type="text" placeholder="Name" className="input input-bordered w-full  hover:border-primary hover:drop-shadow-xl mb-3" />
+                                <input name='email' type="email" placeholder="Email" className="input input-bordered w-full hover:border-primary hover:drop-shadow-xl mb-3" />
+                                <textarea name='message' className="textarea textarea-bordered textarea-lg w-full  hover:border-primary hover:drop-shadow-xl mb-3" placeholder="Message"></textarea>
                                 <div className="">
                                     <button className="btn btn-primary" type='submit'>Send Message</button>
                                 </div>
